@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Monarch - Home</title>
+    <style>
+        .cause h3 {
+            text-align: center; 
+        }
+
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center; /* Center the logo */
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Center the navigation links */
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.section h2, .section h1 {
+    margin-bottom: 40px;
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+}
+
+.section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+#water-source, #report-incident {
+    background-color: #fff;
+    padding: 50px 0;
+}
+
+#water-source form, #report-incident form, #contact form {
+    max-width: 600px;
+    margin: 0px auto;
+    background-color: #f5f5f5;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+
+}
+
+#water-source form label, #report-incident form label, #contact form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+#water-source form input, #report-incident form input, #contact form input, #water-source form select, #report-incident form select, #contact form select, #water-source form button, #report-incident form button, #contact form button, #water-source form textarea, #report-incident form textarea, #contact form textarea {
+    width: 600px;
+    padding: 0px;
+    height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #555;
+
+}
+
+#water-source form textarea, #report-incident form textarea, #contact form textarea {
+    height: 150px;
+    width: 600px;
+}
+
+#water-source form button, #report-incident form button, #contact form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    height: 40px;
+}
+
+#water-source form button:hover, #report-incident form button:hover, #contact form button:hover {
+    background-color: #0056b3;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">Blue Monarch</div>
+                <ul class="nav-links">
+                    <br>
+                    <li><a href="/">Water Source</a></li>
+                    <li><a href="report">Report Incident</a></li>
+                    <li><a href="contact">Contact Us</a></li>
+                    <li><a href="about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Blue Monarch</h2>
+            <div class="cause">
+                <h3>Contamination Management</h3>
+                <p>Blue Monarch implements advanced technology to identify and address water contamination swiftly. Through real-time monitoring and data analysis, contaminated water sources are promptly marked to protect public health.</p>
+            </div>
+            
+            <div class="cause">
+                <h3>Water Scarcity and New Sources</h3>
+                <p>Blue Monarch serves as a lifeline for individuals grappling with water scarcity by helping them locate new sources of water. This feature is particularly crucial in regions afflicted by low water availability, offering hope amidst challenging conditions.</p>
+            </div>
+            
+            <div class="cause">
+                <h3>Emergency Response</h3>
+                <p>During crises such as forest fires, Blue Monarch provides real-time data on nearby water sources, empowering communities to respond swiftly and effectively. Access to updated information ensures the safety and well-being of individuals in emergencies.</p>
+            </div>
+            
+            <div class="cause">
+                <h3>Drought Management</h3>
+                <p>Blue Monarch equips communities with real-time insights into water levels to effectively
+                     manage drought conditions. By providing accurate data, communities can plan ahead and implement sustainable water management strategies, ensuring the availability of water for essential needs.</p>
+            </div>
+            
+            <div class="cause">
+                <h3>Flood Management</h3>
+                <p>Blue Monarch assists in flood management by marking flooded areas on the map, providing real-time information to warn others about potential risks to themselves and their property. By identifying areas susceptible to flooding and updating the map accordingly, the platform helps communities stay informed and take necessary precautions to mitigate the impact of floods.</p>
+            </div>
+            
+            <div class="cause">
+                <h3>Promoting Sustainability</h3>
+                <p>At the core of Blue Monarch's mission is the promotion of sustainability in water resource management. By fostering responsible practices and preserving water ecosystems, the platform contributes to a more sustainable and resilient future for generations to come.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

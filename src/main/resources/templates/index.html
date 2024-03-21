@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        // click on button submit
+        $("#submit").on('click', function(){
+
+        var formDataArray = $("#webForm").serializeArray();
+
+        // Convert the array to a JSON object
+        var formDataJson = {};
+        $.each(formDataArray, function() {
+          formDataJson[this.name] = this.value;
+        });
+
+        // Display the JSON data in the console (optional)
+        console.log(formDataJson);
+
+        // send ajax
+        $.ajax({
+            url: '/api/reservoir',
+            type : "POST",
+            dataType : 'json',
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(formDataJson),
+            success : function(result) {
+                // you can see the result from the console
+                // tab of the developer tools
+                console.log(result);
+                alert("Form submitted successfully!");
+                $("#webForm")[0].reset();
+            },
+            error: function(xhr, resp, text) {
+                console.log(xhr, resp, text);
+                alert("Error submitting the form. Please try again.");
+            }
+        })
+        });
+        });
+    </script>
+    <title> Water Reservoir Form</title>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="container">
+            <div class="logo">Blue Monarch</div>
+            <ul class="nav-links">
+                <br>
+                <li><a href="/">Water Source</a></li>
+                <li><a href="report">Report Incident</a></li>
+                <li><a href="contact">Contact Us</a></li>
+                <li><a href="about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+    <section id="about" class="section">
+        <div class="container">
+            <br><br><br><br>
+    <form id="webForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="lat">Latitude</label>
+            <input type="lat" class="form-control" id="lat" placeholder="Enter Latitude" name="lat">
+        </div>
+        <div class="form-group">
+            <label for="lon">Longitude</label>
+            <input type="lon" class="form-control" id="lon" placeholder="Enter Longitude" name="lon">
+        </div>
+        <div class="form-group">
+            <label for="alt">Altitude</label>
+            <input type="alt" class="form-control" id="alt" placeholder="Enter Altitude" name="alt">
+        </div>
+        <div class="form-group">
+            <label for="capacity">Total Capacity</label>
+            <input type="capacity" class="form-control" id="capacity" placeholder="Enter Total Capacity" name="capacity">
+        </div>
+        <div class="form-group">
+            <label for="phLevel">Ph Level</label>
+            <input type="phLevel" class="form-control" id="phLevel" placeholder="Enter Ph Level" name="phLevel">
+        </div>
+        <div class="form-group">
+            <label for="hardness">Water Hardness</label>
+            <input type="hardness" class="form-control" id="hardness" placeholder="Enter Water Hardness" name="hardness">
+        </div>
+        <button type="button" class="btn btn-default" id="submit">Submit</button>
+    </form>
+</div>
+    </section>
+</div>
+</body>
+<style>
+    /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center; /* Center the logo */
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Center the navigation links */
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.section h2, .section h1 {
+    margin-bottom: 40px;
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+}
+
+.section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+#water-source, #report-incident {
+    background-color: #fff;
+    padding: 50px 0;
+}
+
+#water-source form, #report-incident form, #contact form {
+    max-width: 600px;
+    margin: 0px auto;
+    background-color: #f5f5f5;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+
+}
+
+#water-source form label, #report-incident form label, #contact form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+#water-source form input, #report-incident form input, #contact form input, #water-source form select, #report-incident form select, #contact form select, #water-source form button, #report-incident form button, #contact form button, #water-source form textarea, #report-incident form textarea, #contact form textarea {
+    width: 600px;
+    padding: 0px;
+    height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #555;
+
+}
+
+#water-source form textarea, #report-incident form textarea, #contact form textarea {
+    height: 150px;
+    width: 600px;
+}
+
+#water-source form button, #report-incident form button, #contact form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    height: 40px;
+}
+
+#water-source form button:hover, #report-incident form button:hover, #contact form button:hover {
+    background-color: #0056b3;
+}
+
+
+</style>
+</html>
