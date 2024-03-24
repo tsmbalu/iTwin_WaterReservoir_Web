@@ -1,0 +1,87 @@
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+--
+-- Host: localhost    Database: waterreservoir
+-- ------------------------------------------------------
+-- Server version	8.0.31
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `water_reservoir`
+--
+
+DROP TABLE IF EXISTS `water_reservoir`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `water_reservoir` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `capacity` double NOT NULL,
+  `lat` double NOT NULL,
+  `lon` double NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `ph_level` int NOT NULL,
+  `hardness` int NOT NULL,
+  `alt` double DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `water_reservoir`
+--
+
+LOCK TABLES `water_reservoir` WRITE;
+/*!40000 ALTER TABLE `water_reservoir` DISABLE KEYS */;
+INSERT INTO `water_reservoir` VALUES (1,100,3113257.066423924,-3830936.8065608973,'Rutland Water',10,10,-2334874.409612495),(2,70,3027924.102472373,-3820720.4749399647,'Derwent Dam',8,20,-2261073.089543585),(3,1000,3022937.2196318647,-3786295.594839857,'Lymm Dam',8,100,-2226146.8785487125),(4,2000,2973264.3921889467,-3850614.2906011557,'Fewston Reservoir',8,100,-2249332.789794604),(5,1000,3010312.8257192443,-3781458.5380667453,'Carr Mill Dam',8,100,-2212610.51137048),(6,100,3150334.931188393,-3826520.251607165,'Grafham Water',8,10,-2359461.9675776022),(9,100,3009219.084124621,-3821648.671722054,'Butterley Reservoir',8,10,-2248307.3326492365),(18,100,3088418.7731790985,-3799854.5848562354,'Foremark Reservoir',8,10,-2286875.1683872933);
+/*!40000 ALTER TABLE `water_reservoir` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `water_reservoir_audit`
+--
+
+DROP TABLE IF EXISTS `water_reservoir_audit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `water_reservoir_audit` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `capacity` double NOT NULL,
+  `hardness` int NOT NULL,
+  `ph_level` int NOT NULL,
+  `water_reservoir_id` int DEFAULT NULL,
+  `audit_date` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKnke43i01v9c5d2ot9fx72eg9a` (`water_reservoir_id`),
+  CONSTRAINT `FKnke43i01v9c5d2ot9fx72eg9a` FOREIGN KEY (`water_reservoir_id`) REFERENCES `water_reservoir` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `water_reservoir_audit`
+--
+
+LOCK TABLES `water_reservoir_audit` WRITE;
+/*!40000 ALTER TABLE `water_reservoir_audit` DISABLE KEYS */;
+INSERT INTO `water_reservoir_audit` VALUES (1,100,10,8,1,'2024-02-21 00:00:00.000000'),(2,99,8,8,1,'2024-02-22 00:00:00.000000'),(3,98,11,6,1,'2024-02-23 00:00:00.000000'),(4,97,10,6,1,'2024-02-24 00:00:00.000000'),(5,70,10,6,1,'2024-02-25 00:00:00.000000'),(6,60,10,7,1,'2024-02-26 00:00:00.000000'),(7,100,14,9,1,'2024-02-27 00:00:00.000000'),(8,90,10,8,1,'2024-02-28 00:00:00.000000'),(9,80,10,7,1,'2024-02-29 00:00:00.000000'),(10,85,10,7,1,'2024-03-01 00:00:00.000000'),(18,82,10,8,1,'2024-03-02 00:00:00.000000'),(19,81,10,9,1,'2024-03-03 00:00:00.000000'),(20,80,10,9,1,'2024-03-04 00:00:00.000000'),(21,79,8,9,1,'2024-03-05 00:00:00.000000'),(22,78,10,9,1,'2024-03-06 00:00:00.000000'),(23,80,8,8,1,'2024-03-07 00:00:00.000000'),(24,79,10,8,1,'2024-03-08 00:00:00.000000'),(25,75,10,7,1,'2024-03-09 00:00:00.000000'),(30,74,10,7,1,'2024-03-10 00:00:00.000000'),(31,70,10,8,1,'2024-03-11 00:00:00.000000'),(32,80,11,7,1,'2024-03-12 00:00:00.000000'),(33,90,11,7,1,'2024-03-13 00:00:00.000000'),(34,95,10,8,1,'2024-03-14 00:00:00.000000'),(35,100,9,8,1,'2024-03-15 00:00:00.000000'),(36,97,8,8,1,'2024-03-16 00:00:00.000000'),(37,80,8,8,1,'2024-03-17 00:00:00.000000'),(38,79,8,8,1,'2024-03-18 00:00:00.000000'),(39,70,8,8,1,'2024-03-19 00:00:00.000000'),(40,65,8,8,1,'2024-03-20 00:00:00.000000');
+/*!40000 ALTER TABLE `water_reservoir_audit` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-03-24  8:55:01
